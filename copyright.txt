@@ -1,0 +1,60 @@
+このソフトウェアの構築にあたり、次のライブラリーを用いています。
+
+6x8 dots Japanese font "k6x8"
+http://www.geocities.jp/littlimi/k6x8.htm
+
+JSZip
+http://stuk.github.io/jszip/
+
+RC2014 Emulator
+https://github.com/EtchedPixels/RC2014
+
+Fuzix Tom's SBC (EPROM based)
+http://www.fuzix.org/
+
+いずれも、GPLにコンパチブルなライセンスとして、このソフトウェアーに
+取り込ませて頂きました(JSZipは、MITライセンスとして)。
+
+Both libraries are included in this software with the GPL-conpatible
+licenses (MIT license was used for JSZip).
+
+したがって、このソフトウェアーは、GPL ver 2.0のライセンスの元、配布し
+ます。
+
+Therefore, this software is provided with the GPL ver 2.0 license.
+
+
+
+Copyright (C) 2005-2019 Katsumi
+ 
+このプログラムはフリーソフトウェアです。あなたはこれを、フリー
+ソフトウェア財団によって発行されたGNU一般公衆利用許諾契約書（バー
+ジョン2か、希望によってはそれ以降のバージョンのうちどれか）の定め
+る条件の下で再頒布または改変することができます。
+
+このプログラムは有用であることを願って頒布されますが、全くの無保
+証です。商業可能性の保証や特定の目的への適合性は、言外に示され
+たものも含め全く存在しません。詳しくはGNU一般公衆利用許諾契約書を
+ご覧ください。
+
+あなたはこのプログラムと共に、GNU一般公衆利用許諾契約書の複製物を
+一部受け取ったはずです。もし受け取っていなければ、フリーソフト
+ウェア財団まで請求してください（宛先は The Free Software 
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+02111-1307 USA）。
+ 
+Copyright (C) 2005-2015  Katsumi
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
