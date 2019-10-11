@@ -124,6 +124,9 @@ io.keydown=function(key,shift,ctrl){
 		}
 	} else {//alert(key);
 		switch(key) {
+			case 173: //-
+				this.keypress="-".charCodeAt(0);
+				break;
 			case 222: //'
 				this.keypress="'".charCodeAt(0);
 				break;
@@ -139,13 +142,25 @@ io.keydown=function(key,shift,ctrl){
 			case 192: //`
 				this.keypress="`".charCodeAt(0);
 				break;
+			case 219: //[
+				this.keypress="[".charCodeAt(0);
+				break;
+			case 221: //]
+				this.keypress="]".charCodeAt(0);
+				break;
+			case 220: //\
+				this.keypress="\\".charCodeAt(0);
+				break;
 			default:
 				this.keypress=key;
 				break;
 		}
 	}
 	// Interrupt
-	z80.interrupt(0);
+	// 0xE0 is used as dummy interrupt vector.
+	// This would be valid only for "IM 2".
+	// However, "IM 1" is used in Fuzix.
+	z80.interrupt(0xE0);
 }
 io.keyup=function(key,shift,ctrl){
 

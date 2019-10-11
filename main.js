@@ -5,7 +5,7 @@
 *********************************/
 
 // Initialize Z80 CPU
-var speed=2000000; // 2 Mhz
+var speed=2000000; // Default: 2 Mhz
 var maxspeed=speed;
 z80.setSpeed(speed);
 z80.reset();
@@ -22,6 +22,9 @@ if (get.debug && typeof debugDisplay !="undefined") {
 	if (get.break) {
 		z80.breakPoint=parseInt(get.break,16);
 	}
+}
+if (get.speed) {
+	if (100000<=get.speed && get.speed<=20000000) speed=maxspeed=get.speed;
 }
 // Following function will be called by initializing display.
 start=function(){

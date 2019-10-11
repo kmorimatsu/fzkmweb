@@ -9,7 +9,7 @@ http://stuk.github.io/jszip/
 RC2014 Emulator
 https://github.com/EtchedPixels/RC2014
 
-Fuzix Tom's SBC (EPROM based)
+Fuzix for Tom's SBC (EPROM based)
 http://www.fuzix.org/
 
 いずれも、GPLにコンパチブルなライセンスとして、このソフトウェアーに

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>How to use FZ/KM web</title>
+	<style type="text/css">
+	<!--
+		body {
+			width: 640px;
+		}
+		div {
+			text-align: center;
+		}
+		a {
+			text-decoration: none;
+		}
+	-->
+	</style>
+</head>
+<body>
+(<a href="index.html">Japanese</a> | English)
+<p>FZ/KM web is an HTML5 emulator of PC running Fuzix.</p>
+<p>Following HTML5 functions are used:</p>
+<ul>
+<li>Canvas</li>
+<li>FileReader</li>
+</ul>
+<p>To start FZ/KM, please access to the link, "<a href="../fuzix.html">fuzix.html</a>" by browser. You will see a page as follows. </p>
+<div><img src="fuzix1.png" alt="start" /></div>
+<p>The black window is a display showing 80 x 24 characters. The indicator below is the current Z80 CPU speed (2 MHz is the default). "Set File" is used to upload a disk image file (will be explained below). "Help" is used to see this help page.</p>
+
+<p>As display shows "Waiting for loading disk image", Fuzix cannot be started yet. To start Fuzix, a disk image file is required. The 128M bytes disk imaged for Tom's SBC is used. Please download "tomssbc-0.3.ide" (as noted on the display) from <a href="http://www.fuzix.org/" onclick="window.open(this.href); return false;">http://www.fuzix.org/</a> or somewhere else, then decompress and upload it by using "Set File" button. This file can be uploaded as a decompressed image as well as a ZIP archive. You will see as follows.</p>
+<div><img src="fuzix2.png" alt="disksloaded" /></div>
+
+<p>Please type "hda1" or "1" to the question, "bootdev:". Then, you will be asked to input the current date and time. If specifying is not required, plase press just enter key.</p>
+<div><img src="fuzix3.png" alt="disksloaded2" /></div>
+
+<p>Please type "root" to the question, "login:", in the beginning. Now you can use Fuzix on your browser.</p>
+
+<p>You can save the disk image file after using Fuzix. Please "shutdown" first on the Fuzix screen and wait until the OS will be terminated as follows.</p>
+<div><img src="fuzix4.png" alt="start" /></div>
+<p>Now, you can press "Save Disks" button to download the disk image as ZIP archive. This file can be directly used as a disk image by the "Set File" button in the next time.</p>
+
+<p>The Fuzix ver 0.3 compiled for Tom's SBC is running here.</p>
+
+<p>This HTML5 software emulates a PC like Tom's SBC (<a href="https://easyeda.com/peabody1929" onclick="window.open(this.href); return false;">https://easyeda.com/peabody1929</a>) and has following features.</p>
+
+<ul>
+  <li>CPU is Z80</li>
+  <li>64 k bytes RAM is loaded</li>
+  <li>64 k bytes ROM is loaded</li>
+  <li>Upon the reset, ROM is used in the address region of 0000h-3FFFh</li>
+  <li>Writing to I/O port address 38h defines which ROM or RAM is used in the address 0000h-3FFFh (0:ROM; 1:RAM)</li>
+  <li>Writing to I/O port addresses 3Eh and 3Fh defines which bank is used for ROM (3Eh: A15; 3Fh: A14)</li>
+  <li>Z80-SIO is connected to I/O port addresses 00h-03h for output to the display and input from the key board</li>
+  <li>A conpact flash card is connected to I/O port addresses 10h-17h for emulating a disk</li>
+</ul>
+
+You can add option(s) to URL when starting FZ/KM web. To use Z80 debug tools, please access to "<a href="../fuzix.html?debug=1">fuzix.html?debug=1</a>". To use different CPU speed from default, please access to, for example "<a href="../fuzix.html?speed=8000000">fuzix.html?speed=8000000</a>" in the case of 8 MHz clock speed.
+
+</body>
+</html>

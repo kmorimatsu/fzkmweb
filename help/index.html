@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<title>FZ/KM web の使い方</title>
+	<style type="text/css">
+	<!--
+		body {
+			width: 640px;
+		}
+		div {
+			text-align: center;
+		}
+		a {
+			text-decoration: none;
+		}
+	-->
+	</style>
+</head>
+<body>
+<p>(Japanese | <a href="english.html">English</a>)</p>
+<p>FZ/KM webは、HTML5による、Fuzixの実行環境です。</p>
+<p>HTML5の機能のうち使用しているものは、以下の通りです。</p>
+<ul>
+<li>Canvas</li>
+<li>FileReader</li>
+</ul>
+<p><a href="../fuzix.html">fuzix.html</a>にブラウザでアクセスすると、以下のように表示されます。</p>
+<div><img src="fuzix1.png" alt="start" /></div>
+<p>黒い画面が、80文字×24行の、ディスプレイです。
+その下に、CPUの動作速度を示しています。デフォルト設定では、2 MHzで動作します。
+その下、「Set File」のボタンは、ディスクイメージファイルをセットする場合に使用します（後ほど説明します）。
+「Help」は、現在閲覧中のヘルプファイルを表示させるときに使います。</p>
+
+<p>ディスプレイに「Waiting for loading disk image」と表示されていますが、この状態ではまだFuzixが使用できません。Fuzixの実行には、別途ディスクイメージファイルを準備する必要があります。Tom's SBC用の 128M bytes の物を使用します。表示の通り、「tomssbc-0.3.ide」を<a href="http://www.fuzix.org/" onclick="window.open(this.href); return false;">http://www.fuzix.org/</a>などから取得して、解凍した後に、「Set File」ボタンを用いてアップロードして下さい。このファイルは、解凍した状態でアップロードできますが、ZIPアーカイブにして容量を減らしてからアップロードする事もできます。次のような画面になるはずです。</p>
+<div><img src="fuzix2.png" alt="disksloaded" /></div>
+
+<p>「bootdev:」には、「hda1」もしくは単に「1」を指定して下さい。続けて、現在の日付と時刻の入力を求められますが、特に必要無い場合は、そのまま改行します。</p>
+<div><img src="fuzix3.png" alt="disksloaded2" /></div>
+
+<p>「login:」には、初期の状態では「root」を指定して下さい。これで、Fuzixが使用可能になりました。</p>
+
+<p>Fuzixを使用した後、ディスクイメージファイルを保存することも出来ます。まずFuzix上で「shutdown」を行い、下のような画面になるまでお待ちください。</p>
+<div><img src="fuzix4.png" alt="start" /></div>
+<p>続けて、"Save Disks"ボタンを押すと、ZIPアーカイブダウンロードの状態になります。このZIPアーカイブは、起動時にディスクイメージとして、"Set File"して利用することが可能です。</p>
+
+<p>ここで実行されているFuzixは、ver 0.3で、Tom's SBC用にコンパイルされた物です。</p>
+
+
+<p>エミュレーションしているPCは、Tom's SBC (<a href="https://easyeda.com/peabody1929" onclick="window.open(this.href); return false;">https://easyeda.com/peabody1929</a>) に準拠しており、以下のような特徴があります。</p>
+
+<ul>
+  <li>CPUとしてZ80を搭載</li>
+  <li>RAMを64 kbytes搭載</li>
+  <li>ROMを64 kbytes搭載</li>
+  <li>リセット時に、0000h-3FFFhの領域にROMが使用される</li>
+  <li>0000h-3FFFhの領域でROMを使用するかRAMを使用するかは、I/Oポート38hへの書き込みで指定する（0でROM、1でRAM）</li>
+  <li>ROMのどの領域を使用するかは、I/Oポート3Eh及び3Fhへの書き込みで指定する（3Eh: A15; 3Fh: A14）</li>
+  <li>I/Oポート00h-03hにZ80-SIOが接続されており、画面への出力及びキーボード入力を行なう</li>
+  <li>I/Oポート10h-17hに128 Mbytesのコンパクトフラッシュカードが接続されており、ディスクとして認識される</li>
+</ul>
+
+起動時にオプションを付加する事ができます。「<a href="../fuzix.html?debug=1">fuzix.html?debug=1</a>」にアクセスすれば、デバッグ用のツールボタンが表示されます。また、「<a href="../fuzix.html?speed=8000000">fuzix.html?speed=8000000</a>」等とすれば、異なるCPU速度で実行する事ができます（例は、8 MHzで実行する場合）。
+
+</body>
+</html>

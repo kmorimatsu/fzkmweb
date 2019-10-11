@@ -56,7 +56,7 @@ ide.ide_read=function(r){
 	// If disk image is uploaded, emulate it
 	if (ide.disk) return ide.ide_read8(ide.ide0,r);
 	// If not, show warning.
-	var str="\r\n\r\nWaiting for loading disk image\r\n\r\n";
+	var str="\r\n\r\nWaiting for loading disk image file, tomssbc-0.3.ide\r\n\r\n";
 	var i;
 	for(i=0;i<str.length;i++){
 		display.writeChar(str.charCodeAt(i));
@@ -1391,8 +1391,8 @@ ide.structures=function(){
 	ide.ide0=new Object();
 	ide.ide0.drive=new Array(2);
 	ide.ide0.drive[0]=new Object();
-//	ide.ide0.drive[1]=new Object();
-	ide.ide0.drive[1]=ide.ide0.drive[0];
+	ide.ide0.drive[1]=new Object();
+//	ide.ide0.drive[1]=ide.ide0.drive[0];
 	ide.ide0.selected=0;
 	ide.ide0.name="cf";
 	ide.ide0.data_latch=0;
@@ -1418,8 +1418,23 @@ ide.structures=function(){
 	ide.ide0.drive[0].offset=0;
 	ide.ide0.drive[0].length=0;
 
-//	ide.ide0.drive[1].present=0;
-//	ide.ide0.drive[1].taskfile=new Object();
+	ide.ide0.drive[1].controller=ide.ide0;
+	ide.ide0.drive[1].taskfile=new Object();
+	ide.ide0.drive[1].present=0;
+	ide.ide0.drive[1].intrq=0;
+	ide.ide0.drive[1].failed=0;
+	ide.ide0.drive[1].lba=1;
+	ide.ide0.drive[1].eightbit=0;
+	ide.ide0.drive[1].cylinders=1024;
+	ide.ide0.drive[1].heads=16;
+	ide.ide0.drive[1].sectors=16;
+	ide.ide0.drive[1].data=new Array(512);
+	ide.ide0.drive[1].identify=new Array(512); // 256 word = 512 bytes.
+	ide.ide0.drive[1].dptr=0;
+	ide.ide0.drive[1].state=0;
+	ide.ide0.drive[1].fd=0;
+	ide.ide0.drive[1].offset=0;
+	ide.ide0.drive[1].length=0;
 
 	//ide_taskfile structure
 	ide.ide0.drive[0].taskfile.data=0;
@@ -1434,6 +1449,19 @@ ide.structures=function(){
 	ide.ide0.drive[0].taskfile.command=0;
 	ide.ide0.drive[0].taskfile.devctrl=0;
 	ide.ide0.drive[0].taskfile.drive=ide.ide0.drive[0];
+
+	ide.ide0.drive[1].taskfile.data=0;
+	ide.ide0.drive[1].taskfile.error=0;
+	ide.ide0.drive[1].taskfile.feature=0;
+	ide.ide0.drive[1].taskfile.count=0;
+	ide.ide0.drive[1].taskfile.lba1=0;
+	ide.ide0.drive[1].taskfile.lba2=0;
+	ide.ide0.drive[1].taskfile.lba3=0;
+	ide.ide0.drive[1].taskfile.lba4=0;
+	ide.ide0.drive[1].taskfile.status=0;
+	ide.ide0.drive[1].taskfile.command=0;
+	ide.ide0.drive[1].taskfile.devctrl=0;
+	ide.ide0.drive[1].taskfile.drive=ide.ide0.drive[1];
 };
 //
 ///*

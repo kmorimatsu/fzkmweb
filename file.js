@@ -10,6 +10,7 @@
 	file.setFile(obj);
 */
 file=new Object();
+file.data=0;
 file.setFile=function(obj){
 	// Show the file upload input.
 	obj.style.display='block';
@@ -39,6 +40,8 @@ file.update=function(data){
 		var data2=zip.file("tomssbc-0.3.ide").asUint8Array();
 		data=data2;
 	}
+	// Store data object in this object (an array and edited by Fuzix through ide object) for saveLink()
+	this.data=data;
 	// This must be disk image file
 	// Update diskimage data, clear screen, and reset Z80
 	ide.init(data);
@@ -46,4 +49,15 @@ file.update=function(data){
 	display.cls();
 	z80.reset();
 	document.getElementById('savebutton').style.display='block';
-}
+};
+file.saveLink=function(obj){
+	// Construct ZIP archive containing "cpmdisks"
+	var zip = new JSZip();
+	zip.file("tomssbc-0.3.ide",this.data);
+	var data="data:application/zip;base64,";
+	data+=zip.generate({type:"base64",compression: "DEFLATE"});
+	// Update href property of a tag
+	obj.href=data;
+	obj.click();
+};
+

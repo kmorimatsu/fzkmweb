@@ -2,14 +2,14 @@
 <html lang="ja">
 <!--
 /*********************************
-*  CP/KM web written by Katsumi  *
+*  FZ/KM web written by Katsumi  *
 *    This script is released     *
-*      under the LGPL v2.1.      *
+*       under the GPL v2.0       *
 *********************************/
 -->
 <head>
 	<meta charset="UTF-8" />
-	<title>FZ/KM web v0.1</title>
+	<title>FZ/KM web v0.2</title>
 	<link rel="stylesheet" type="text/css" href="./style.css" />
 	<!-- HTML5 functions -->
 	<script type="text/javascript" src="./get.js"></script>
@@ -29,7 +29,7 @@
 	<script type="text/javascript" src="./file.js"></script>
 	<!-- Zip file support -->
 	<script type="text/javascript" src="./jszip.js"></script>
-	<!-- Load debug functions (optional; it will work at cpm.html?debug=1) -->
+	<!-- Load debug functions (optional; it will work at fuzix.html?debug=1) -->
 	<script type="text/javascript" src="./debug.js"></script>
 </head>
 <body>
@@ -60,9 +60,9 @@
 	<a class="help" href="./help/index.html" onclick="window.open(this.href); return false;">Help</a>
 	<!-- File download link -->
 	<input type="button" value="Save Disks" class="hidden" id="savebutton" onclick="
-		disk.saveLink(document.getElementById('save'));
+		file.saveLink(document.getElementById('save'));
 	" />
-	<a class="file" id="save" href="#" download="cpmdisks.zip">Save Disk Image</a>
+	<a class="file" id="save" href="#" download="fzkmdisk.zip">Save Disk Image</a>
 	<!-- Load main script -->
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript">
