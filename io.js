@@ -11,6 +11,7 @@
 */
 io=new Object();
 io.keypress=0;
+io.timer8=0;
 io.init=function(){
 	io.RAM_ROM=0;
 	io.ROM_A14=0;
@@ -29,7 +30,7 @@ io.read=function(addrL,addrH){
 				return ret;
 			case 0x02:
 			case 0x03:
-				return 0x04|(io.keypress ? 3:0);
+				return 0x06|(io.keypress ? 1:0)|(io.timer8 ? 8:0);
 		}
 	} else if (0x10<=addrL && addrL<=0x17) {
 		// IDE
@@ -164,4 +165,17 @@ io.keydown=function(key,shift,ctrl){
 }
 io.keyup=function(key,shift,ctrl){
 
+};
+io.timer=function(time){
+	// 8 Hz timer
+	time=time % 125;
+	// To binary
+	time=(time<62) ? 1:0;
+	// Interrupt if required
+	if (io.timer8!=time) {
+		io.timer8=time;
+		z80.interrupt(0xE0);
+	} else {
+		io.timer8=time;
+	}
 };

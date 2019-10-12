@@ -34,6 +34,7 @@ start=function(){
 			var from=time;
 			var to=time=new Date().getTime();
 			var msec=to-from;
+			io.timer(time);
 			if (msec<50 && speed<maxspeed) {
 				speed<<=1;
 				 if (15625<speed && speed<31250) speed=15625;
