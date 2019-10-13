@@ -6,9 +6,6 @@ http://www.geocities.jp/littlimi/k6x8.htm
 JSZip
 http://stuk.github.io/jszip/
 
-RC2014 Emulator
-https://github.com/EtchedPixels/RC2014
-
 Fuzix for Tom's SBC (EPROM based)
 http://www.fuzix.org/
 
@@ -43,7 +40,7 @@ Copyright (C) 2005-2019 Katsumi
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 02111-1307 USA）。
  
-Copyright (C) 2005-2015  Katsumi
+Copyright (C) 2005-2019  Katsumi
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
