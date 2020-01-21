@@ -69,9 +69,12 @@ io.write=function(addrL,addrH,data){
 				io.ROM_A14=data&1;
 				break;
 		}
+	} else {
+		console.log("OUT 0x"+(addrH*256+addrL).toString(16)+",0x"+data.toString(16)+
+			"(0xB"+(0xF800000 | ((addrL&0x40)<<13 | ((addrH&0xff)<<8) | ((addrL&0x3f)<<2))).toString(16)+")" );
 	}
 };
-io.keydown=function(key,shift,ctrl){
+io.keydown=function(key,shift,ctrl){//console.log(key);
 	if (64<key && key<91) {
 		// A-Z
 		if (ctrl) {
@@ -87,9 +90,11 @@ io.keydown=function(key,shift,ctrl){
 	} else if (shift) {
 		switch(key) {
 			case 173: //_
+			case 189:
 				this.keypress="_".charCodeAt(0);
 				break;
 			case 61:  //+
+			case 187:
 				this.keypress="+".charCodeAt(0);
 				break;
 			case 219: //{
@@ -102,6 +107,7 @@ io.keydown=function(key,shift,ctrl){
 				this.keypress="|".charCodeAt(0);
 				break;
 			case 59:  //:
+			case 186:
 				this.keypress=":".charCodeAt(0);
 				break;
 			case 222: //"
@@ -126,7 +132,16 @@ io.keydown=function(key,shift,ctrl){
 	} else {//alert(key);
 		switch(key) {
 			case 173: //-
+			case 189:
 				this.keypress="-".charCodeAt(0);
+				break;
+			case 61:  //=
+			case 187:
+				this.keypress="=".charCodeAt(0);
+				break;
+			case 59:  //;
+			case 186:
+				this.keypress=";".charCodeAt(0);
 				break;
 			case 222: //'
 				this.keypress="'".charCodeAt(0);
